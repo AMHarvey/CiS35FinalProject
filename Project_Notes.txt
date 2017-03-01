@@ -1,0 +1,83 @@
+Project Outline:
+	3d based isometric rpg with turn based combat.
+
+Begginning:
+	Short tutorial with minimal enemies.
+	Give player some basic items and gold for finishing.
+	Generic boss monster to end tutorial: Ogre, Orc, etc...
+	**Generic "Hero" start, or something more original?
+
+Middle:
+	After tutorial start player in a town.
+	Give chance to buy equipment and resources.
+	**Get single quest to go kill a dragon (Generic)
+	Some dialogue with NPCs.
+	**War Torn or Peaceful?
+	
+
+End:
+	Have Player fight with end boss (Dragon?) 
+	Medium difficulty fight relying on positioning.
+	
+	Kill boss and recieve upper tier loot.
+	Return to town and complete quest.
+	** Ending sequence, or leave it at that?
+	
+
+Other Ideas:
+	** Inventory system?
+	** Character screen?
+	** Different classes?
+	** Party members?
+	** Save states?
+
+Story Ideas:
+
+ Tutorial Cave:
+	You awake in a damp cave, sparce rays of light spotting the ground.
+	Upon inspection of your person: You are wearing tattered rags, equipped with only a battered wooden shield and a wooden club.
+	Although dark, you can make out the flicker of a fire in the distance, ominous shadows dancing around it.
+	As you get closer you can cleary make out green figures, with long pointy ears.
+	** Lore check?
+		[Lore] Attempt to identify the creatures.
+	You identify the two creatures as goblins, and can hear them making gutteral noises while they parade around the fire.
+	Smoke from the fire wafts towards you and you realize that the goblins are cooking food. Your stomach grumbles.
+	You decide if you want to attack the goblins or attempt to sneak past.
+	If defeated you can choose what to do with their equipment and food.
+	** Trick food? Human?
+	You find a few rusty daggers among the goblins, but nothing else of note.
+	
+	-More goblin enctounters through the cave-
+
+	*Writing outline below*
+	At the end of the cave you find the boss creature, either an orc or an ogre.
+	More difficult than the goblins, but nothing crazy.
+	**Have the boss say something, mabye some exposition?
+	
+ Town:
+	*Writing outline below*
+	Greeted by town mayor/leader.
+	**Start with plot dump? (Prop not, boring.)
+	**Gather plot from towns folk, option to skip it entirely.
+	Mayor/leader tells you to look around town for a bit, and speak with him when you are ready to continure.
+	Give reason to even continue in the first place: gold, hero character?, loot, save world?.
+	Learn about town and their predicament.
+	Buy gear off of merchants.
+	
+ Dragon's (?) Lair:
+	*Writing outline Below*
+	Few enemies before boss, less than tutorial. Mostly to test new gear.
+	Find end boss, talking sequence.
+	**Add option to side with end boss, destroy town?
+	Bit of story from boss, fight after.
+	**Dialogue during fight?
+	Kill boss.
+	**More Dialogue?
+	Go back to town after looting.
+
+ Back at town:
+	Congratulations from towns folk and mayor/leader.
+	**More or end?	
+
+* ToDo
+** Decision Required
