@@ -12,18 +12,16 @@ public class MouseTest : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//Vector3 v = Input.mousePosition;
-		//v.z = 8.2f;
-
 		if (Input.GetMouseButtonDown(0)) {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
-			//Debug.Log(Input.GetAxis("Mouse X"));
 			if (Physics.Raycast (ray, out hit)) {
-				Debug.Log (hit.point);
-				player.transform.position (hit.point);
+				if (!hit.collider.gameObject.Equals(player)) {
+					Vector3 pos = new Vector3 (hit.point.x, hit.point.y, hit.point.z);
+					pos.y += 0.95f;
+					player.transform.position = pos;
+				}
 			}
-			//Debug.Log(Camera.main.ScreenToWorldPoint(v));
 		}
 	}
 }
