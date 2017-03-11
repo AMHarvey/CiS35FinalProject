@@ -20,6 +20,7 @@ public class MouseTest : MonoBehaviour {
 					Vector3 pos = new Vector3 (hit.point.x, hit.point.y, hit.point.z);
 					pos.y += 0.95f;
 					player.transform.position = pos;
+					//player.transform.position = Vector3.MoveTowards(transform.position, pos, 5.0f * Time.deltaTime);
 				}
 			}
 		}
