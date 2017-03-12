@@ -2,34 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Camera))]
 public class CameraMovement : MonoBehaviour {
 
-	//[RequireComponent (Camera)]
-	[SerializeField] float cameraSpeed = 0.3f;
+	public float horizontalSpeed = 0.5f;
+	public float verticalSpeed = 0.5f;
+	private Vector3 _startingPos;
+	private bool _isMoving;
+
 
 	// Use this for initialization
 	void Start () {
-		
+		_isMoving = false;
+		_startingPos = this.transform.position;
+		_startingPos.y -= 0.98f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		float y = Input.mousePosition.y;
-		float x = Input.mousePosition.x;
-		if (y >= Screen.height - 15.0f) {
-			//this.transform.Translate (new Vector3(0.0f, cameraSpeed, 0.0f));
-		}
-
-		if (y <= 15.0f) {
-			//this.transform.Translate (new Vector3(0.0f, -cameraSpeed, 0.0f));
-		}
-
-		if (x >= Screen.width - 15.0f) {
-			//this.transform.Translate (new Vector3(cameraSpeed, 0.0f, 0.0f));
-		}
-
-		if (x <= 15.0f) {
-			//this.transform.Translate (new Vector3(-cameraSpeed, 0.0f, 0.0f));
+		if (Input.GetKey ("r")) {
+			float x = horizontalSpeed * Input.GetAxis ("Mouse X");
+			float y = verticalSpeed * Input.GetAxis ("Mouse Y");
+			this.transform.Translate (x, y, 0.0f);
+			_isMoving = true;
+		} else if(!Input.GetKey ("r") && _isMoving) {
+			this.transform.localPosition = _startingPos;
+			_isMoving = false;
 		}
 	}
 }
