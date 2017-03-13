@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MouseTest : MonoBehaviour {
 	[SerializeField] GameObject player;
-	[SerializeField] GameObject test;
 	public float speed = 2.0f;
 
 	// Use this for initialization
@@ -18,18 +17,27 @@ public class MouseTest : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
-				if (!hit.collider.gameObject.Equals(player) && !Input.GetKey("e")) {
-					Vector3 pos = hit.point;
+				if(!hit.collider.gameObject.Equals(player)) {
+					Vector3 pos = hit.collider.gameObject.transform.position;
 					pos.y += 0.95f;
-					////player.transform.position = pos;
+					iTween.Stop ();
 					iTween.MoveTo (player, pos, speed);
-				}
-				if(hit.collider.gameObject.Equals(test) && Input.GetKey("e")) {
-					Vector3 test = hit.collider.gameObject.transform.position;
-					test.y += 0.95f;
-					player.transform.position = test;
+					//player.transform.position = pos;
 				}
 			}
 		}
 	}
 }
+
+
+
+/**
+ * Original Movement Code, TBH if going to us.
+ * 
+ * if (!hit.collider.gameObject.Equals(player) && !Input.GetKey("e")) {
+					Vector3 pos = hit.point;
+					pos.y += 0.95f;
+					////player.transform.position = pos;
+					iTween.MoveTo (player, pos, speed);
+				}
+*/

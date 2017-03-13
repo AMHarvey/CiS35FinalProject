@@ -24,6 +24,7 @@ public class CameraMovement : MonoBehaviour {
 			float x = horizontalSpeed * Input.GetAxis ("Mouse X");
 			float y = verticalSpeed * Input.GetAxis ("Mouse Y");
 			this.transform.Translate (x, y, 0.0f);
+
 			_isMoving = true;
 		} else if(!Input.GetKey ("r") && _isMoving) {
 			this.transform.localPosition = _startingPos;
@@ -31,3 +32,5 @@ public class CameraMovement : MonoBehaviour {
 		}
 	}
 }
+
+//TODO: Seperate camera from player.
