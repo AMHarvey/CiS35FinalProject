@@ -19,12 +19,12 @@ public class CameraMovement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
+	// Try out third person camera code from the example game.
 	void Update () {
 		if (Input.GetKey ("r")) {
 			float x = horizontalSpeed * Input.GetAxis ("Mouse X");
 			float y = verticalSpeed * Input.GetAxis ("Mouse Y");
 			this.transform.Translate (x, y, 0.0f);
-
 			_isMoving = true;
 		} else if(!Input.GetKey ("r") && _isMoving) {
 			this.transform.localPosition = _startingPos;
