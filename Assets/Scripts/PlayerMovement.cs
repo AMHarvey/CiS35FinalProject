@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseTest : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour {
 	[SerializeField] GameObject player;
 	public float speed = 2.0f;
 
