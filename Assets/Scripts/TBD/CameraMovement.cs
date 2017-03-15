@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class CameraMovement : MonoBehaviour {
 
+	[SerializeField] GameObject player;
 	public float horizontalSpeed = 0.5f;
 	public float verticalSpeed = 0.5f;
 	private Vector3 _startingPos;
@@ -24,12 +25,14 @@ public class CameraMovement : MonoBehaviour {
 		if (Input.GetKey ("r")) {
 			float x = horizontalSpeed * Input.GetAxis ("Mouse X");
 			float y = verticalSpeed * Input.GetAxis ("Mouse Y");
-			this.transform.Translate (x, y, 0.0f);
-			_isMoving = true;
-		} else if(!Input.GetKey ("r") && _isMoving) {
-			this.transform.localPosition = _startingPos;
-			_isMoving = false;
-		}
+			float z = 0.5f * Input.GetAxis ("Mouse Z");
+			this.transform.Translate (x, y, z);
+			this.transform.LookAt (player.transform.position);
+			//_isMoving = true;
+		}// else if(!Input.GetKey ("r") && _isMoving) {
+		//	this.transform.localPosition = _startingPos;
+			//_isMoving = false;
+		//}
 	}
 }
 

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-	[SerializeField] GameObject player;
 	public float speed = 2.0f;
+	private float _yPos;
 
 	// Use this for initialization
 	void Start () {
-		
+		_yPos = this.transform.position.y;
 	}
 	
 	// Update is called once per frame
@@ -17,11 +17,11 @@ public class PlayerMovement : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
-				if(!hit.collider.gameObject.Equals(player)) {
+				if(!hit.collider.gameObject.Equals(this.gameObject)) {
 					Vector3 pos = hit.collider.gameObject.transform.position;
-					pos.y += 0.95f;
+					pos.y = _yPos;
 					iTween.Stop ();
-					iTween.MoveTo (player, pos, speed);
+					iTween.MoveTo (this.gameObject, pos, speed);
 					//player.transform.position = pos;
 				}
 			}

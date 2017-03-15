@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyDetector : MonoBehaviour {
-	[SerializeField] GameObject player;
 	[SerializeField] GameObject enemy;
 	public float maxDistance = 2.0f;
 
@@ -15,7 +14,7 @@ public class EnemyDetector : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown("w")) {
-			Ray ray = new Ray(player.transform.position, player.transform.forward);
+			Ray ray = new Ray(this.transform.position, this.transform.forward);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit, maxDistance)) {
 				GameObject hitObject = hit.transform.gameObject;
