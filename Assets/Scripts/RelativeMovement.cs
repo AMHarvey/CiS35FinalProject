@@ -19,8 +19,7 @@ public class RelativeMovement : MonoBehaviour {
 	private float _curSpeed = 0.0f;
 	private Vector3 _targetPos = Vector3.one;
 
-	private float _vertSpeed;
-	private ControllerColliderHit _contact;
+	private float _vertSpeed = 0.0f;
 
 	private CharacterController _charController;
 	private Animator _animator;
@@ -62,8 +61,7 @@ public class RelativeMovement : MonoBehaviour {
 			}
 
 		}
-		_animator.SetFloat("Speed", movement.sqrMagnitude);
-		movement.y = _vertSpeed;
+		//_animator.SetFloat("Speed", movement.sqrMagnitude);
 		movement *= Time.deltaTime;
 		_charController.Move(movement);
 	}

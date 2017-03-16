@@ -9,12 +9,12 @@ public class CameraMovement : MonoBehaviour {
 	public float horizontalSpeed = 0.5f;
 	public float verticalSpeed = 0.5f;
 	private Vector3 _startingPos;
-	private bool _isMoving;
+	//private bool _isMoving;
 
 
 	// Use this for initialization
 	void Start () {
-		_isMoving = false;
+	//	_isMoving = false;
 		_startingPos = this.transform.position;
 		_startingPos.y -= 0.98f;
 	}
