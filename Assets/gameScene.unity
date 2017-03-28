@@ -792,6 +792,17 @@ MonoBehaviour:
   rotSpeed: 10
   deceleration: 25
   targetBuffer: 1.5
+--- !u!114 &1305628233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1305628231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb14ebe91d07fd4094f32e0a81f4bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1305628234 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400038, guid: 541e0aca5301ac04f943ae6546e21b65, type: 3}
