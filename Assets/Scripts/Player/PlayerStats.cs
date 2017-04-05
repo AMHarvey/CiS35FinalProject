@@ -5,26 +5,24 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
 
+	enum statEnum { Str, Dex, Con, Int, Wis, Cha };
+
 	private int[] _stats = new int[6];
 
 	private int _lowest = int.MaxValue;
 
 	// Use this for initialization
 	void Start () {
-		//int[] firstDice = d6(4);
-		//int totalDice = removeMin(firstDice);
 		stats();
 	}
 
 	private void stats() {
-		int[] dice = null;
-		int total = 0;
-		//Debug.Log(removeMin (d6(4)));
+		//Testing
+		//Debug.Log("Dice Working: " + tester ());
+
 		for (int i = 0; i < _stats.Length; i++) {
-			dice = d6 (4);
-			total = removeMin (dice);
-			_stats [i] = total;
-			Debug.Log (_stats [i]);
+			_stats [i] = removeMin(d6(4));
+			Debug.Log ((statEnum)i + ": " + _stats [i]);
 		}
 	}
 
@@ -41,5 +39,18 @@ public class PlayerStats : MonoBehaviour {
 	private int removeMin (int[] diceArray) {
 		int temp = diceArray.Min ();
 		return diceArray.Sum () - temp;
+	}
+
+	private bool tester() {
+		int backOut = 0;
+		int total = 0;
+		while (backOut != 10000) {
+			total = removeMin (d6 (4));
+			backOut++;
+			if (total == 3) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
