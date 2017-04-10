@@ -20,13 +20,17 @@ public class PlayerStats : MonoBehaviour {
 		_stats [index] = newVal;
 	}
 
-	private void stats() {
+	public static void shuffle() {
+		stats ();
+	}
+
+	private static void stats() {
 		//Testing
 		//Debug.Log("Dice Working: " + tester ());
 
 		for (int i = 0; i < _stats.Length; i++) {
 			_stats [i] = Dice.removeMin(Dice.d6(4));
-			Debug.Log ((statEnum)i + ": " + _stats [i]);
+			//Debug.Log (_stats [i]);
 		}
 	}
 

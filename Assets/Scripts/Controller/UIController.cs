@@ -3,12 +3,15 @@ using UnityEngine.UI;
 using UnityEngine;
 
 public class UIController : MonoBehaviour {
-	[SerializeField] private Text scoreLabel;
+	[SerializeField] private Text[] statDisplay;
+	[SerializeField] StatUI statui;
+
+	private bool isOpen = false;
 
 	// Use this for initialization
 	void Start () {
-		int[] stats = PlayerStats.getStats ();
-		scoreLabel.text = stats[0].ToString();
+		statui.Close ();
+		displayStats ();
 	}
 	
 	// Update is called once per frame
@@ -17,6 +20,24 @@ public class UIController : MonoBehaviour {
 	}
 
 	public void OnOpenSettings() {
-		Debug.Log ("Working");
+		if (!isOpen) {
+			statui.Open ();
+			isOpen = true;
+		} else {
+			statui.Close ();
+			isOpen = false;
+		}
+	}
+
+	public void Shuffle() {
+		PlayerStats.shuffle ();
+		displayStats ();
+	}
+
+	public void displayStats() {
+		int[] stats = PlayerStats.getStats ();
+		for (int i = 0; i < statDisplay.Length; i++) {
+			statDisplay [i].text = stats[i].ToString ();
+		}
 	}
 }
