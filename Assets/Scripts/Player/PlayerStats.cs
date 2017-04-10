@@ -6,15 +6,23 @@ public class PlayerStats : MonoBehaviour {
 
 	private enum statEnum { Str, Dex, Con, Int, Wis, Cha };
 
-	public int[] _stats = new int[6];
+	private static int[] _stats = new int[6];
 
-	void Start () {
+	void Awake () {
 		stats();
+	}
+
+	public static int[] getStats() {
+		return _stats;
+	}
+
+	public static void setStats(int index, int newVal) {
+		_stats [index] = newVal;
 	}
 
 	private void stats() {
 		//Testing
-		Debug.Log("Dice Working: " + tester ());
+		//Debug.Log("Dice Working: " + tester ());
 
 		for (int i = 0; i < _stats.Length; i++) {
 			_stats [i] = Dice.removeMin(Dice.d6(4));
