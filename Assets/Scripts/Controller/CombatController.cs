@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStatistics : MonoBehaviour {
-	private int armorClass;
+public class CombatController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		armorClass = 10;
 		
 	}
-
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 }
