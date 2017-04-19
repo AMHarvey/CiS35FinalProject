@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyDetector : MonoBehaviour {
 	[SerializeField] GameObject enemy;
+	[SerializeField] CombatController cController;
 	public float maxDistance = 2.0f;
 
 	// Use this for initialization
@@ -13,21 +14,10 @@ public class EnemyDetector : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown("w")) {
-			Ray ray = new Ray(this.transform.position, this.transform.forward);
-			RaycastHit hit;
-			if (Physics.Raycast (ray, out hit, maxDistance)) {
-				GameObject hitObject = hit.transform.gameObject;
-				EnemyActions target = hitObject.GetComponent<EnemyActions> ();
-				if (target != null) {
-					target.reactToHit ();
-				}
-			} else {
-				Debug.Log ("NOPE");
-			}
-				
-			//Ray ray = player.;
-			//RaycastHit hit;
+		if (Input.GetMouseButtonDown (1)) {
+			cController.attack (this.gameObject);
 		}
 	}
+
+
 }

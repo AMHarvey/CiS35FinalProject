@@ -4,48 +4,51 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour {
 
-	public float moveSpeed = 6.0f;
 	public float rotSpeed = 15.0f;
 
 	private Vector3 _targetPos;
-	private float _curSpeed;
-	private Vector3 _movement;
-	private CharacterController _charController;
+	private Vector3 _targetRot;
 
 	// Use this for initialization
 	void Start () {
-		_charController = GetComponent<CharacterController>();
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		getClick ();
-		StartCoroutine(move ());
+		move ();
+		selectedRotate ();
 	}
-
-	private IEnumerator move() {
-		while (true) {
-			this.transform.position = Vector3.Lerp (transform.position, _targetPos, 5.0f * Time.deltaTime);
-			if (transform.position == _targetPos) {
-				yield break;
-			}
-			yield return null;
-		}
-	}
-
-
-
-	private void getClick() {
+		
+	private void move() {
 		if (Input.GetMouseButtonDown(0)) {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
 				if(!hit.collider.gameObject.Equals(this.gameObject)) {
+					rotateTowards(hit);
 					_targetPos = hit.transform.position;
-					_curSpeed = moveSpeed;
-					Debug.Log (_targetPos + " " + _curSpeed);
+					_targetPos.y = 1.1f;
+					transform.position = _targetPos;
 				}
 			}
 		}
+	}
+
+	private void selectedRotate() {
+		if (Input.GetKeyDown("z")) {
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hit;
+			if (Physics.Raycast (ray, out hit)) {
+				rotateTowards (hit);
+			}
+		}
+	}
+
+	private void rotateTowards(RaycastHit hit) {
+		Transform hitT = hit.transform;
+		Vector3 adjustedPos = new Vector3 (hitT.position.x, transform.position.y, hitT.position.z);
+		Quaternion targetRot = Quaternion.LookRotation (adjustedPos - transform.position);
+		transform.rotation = targetRot;
 	}
 }

@@ -11,4 +11,8 @@ public class EnemyStatistics : MonoBehaviour {
 		
 	}
 
+	public int getAC() {
+		return armorClass;
+	}
+
 }

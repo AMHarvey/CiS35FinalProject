@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-public class HexGrid : MonoBehaviour
-{
+public class HexGrid : MonoBehaviour {
 	public Transform hexPrefab;
 
 	public int gridWidth = 11;
@@ -13,21 +12,18 @@ public class HexGrid : MonoBehaviour
 
 	Vector3 startPos;
 
-	void Start()
-	{
+	void Awake() {
 		AddGap();
 		CalcStartPos();
 		CreateGrid();
 	}
 
-	void AddGap()
-	{
+	void AddGap() {
 		hexWidth += hexWidth * gap;
 		hexHeight += hexHeight * gap;
 	}
 
-	void CalcStartPos()
-	{
+	void CalcStartPos() {
 		float offset = 0;
 		if (gridHeight / 2 % 2 != 0)
 			offset = hexWidth / 2;
@@ -38,8 +34,7 @@ public class HexGrid : MonoBehaviour
 		startPos = new Vector3(x, 0, z);
 	}
 
-	Vector3 CalcWorldPos(Vector2 gridPos)
-	{
+	Vector3 CalcWorldPos(Vector2 gridPos) {
 		float offset = 0;
 		if (gridPos.y % 2 != 0)
 			offset = hexWidth / 2;
@@ -50,8 +45,7 @@ public class HexGrid : MonoBehaviour
 		return new Vector3(x, 0, z);
 	}
 
-	void CreateGrid()
-	{
+	void CreateGrid() {
 		for (int y = 0; y < gridHeight; y++)
 		{
 			for (int x = 0; x < gridWidth; x++)
