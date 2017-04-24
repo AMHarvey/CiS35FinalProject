@@ -15,8 +15,8 @@ public class Stats : MonoBehaviour {
 	void Awake () {
 		stats = new int[statSize];
 		mods = new int[statSize];
-		assignStats ();
-		addMods ();
+		//assignStats ();
+		//addMods ();
 
 
 		//statTester ();

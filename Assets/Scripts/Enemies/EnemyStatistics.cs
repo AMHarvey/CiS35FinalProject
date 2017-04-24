@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyStatistics : MonoBehaviour {
+
+	[SerializeField] Stats stats;
+
 	private int armorClass;
 
 	// Use this for initialization
-	void Start () {
-		armorClass = 10;
+	void Awake () {
+		armorClass = stats.armorClass;
 		
 	}
 

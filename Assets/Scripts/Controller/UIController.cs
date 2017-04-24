@@ -13,7 +13,9 @@ public class UIController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		statui.Close ();
-		displayStats ();
+		//displayStats ();
+		//displayMods ();
+		Shuffle();
 	}
 	
 	// Update is called once per frame

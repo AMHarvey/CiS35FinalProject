@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
-				if(!hit.collider.gameObject.Equals(this.gameObject)) {
+				if(!hit.collider.gameObject.Equals(this.gameObject) && distanceFrom(hit) < 3.0f) { //Delete Collider
 					rotateTowards(hit);
 					_targetPos = hit.transform.position;
 					_targetPos.y = 1.1f;
@@ -40,7 +40,8 @@ public class Movement : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
-				rotateTowards (hit);
+				if (distanceFrom (hit) < 3.0f)
+					rotateTowards (hit);
 			}
 		}
 	}
@@ -50,5 +51,9 @@ public class Movement : MonoBehaviour {
 		Vector3 adjustedPos = new Vector3 (hitT.position.x, transform.position.y, hitT.position.z);
 		Quaternion targetRot = Quaternion.LookRotation (adjustedPos - transform.position);
 		transform.rotation = targetRot;
+	}
+
+	private float distanceFrom(RaycastHit hit) {
+		return Vector3.Distance (gameObject.transform.position, hit.transform.position);
 	}
 }
