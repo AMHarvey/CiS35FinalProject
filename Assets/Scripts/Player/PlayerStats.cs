@@ -6,32 +6,31 @@ public class PlayerStats : MonoBehaviour {
 
 	private enum statEnum { Str, Dex, Con, Int, Wis, Cha };
 
-	private static int[] _stats = new int[6];
+	[SerializeField] Stats playerStats;
+
+	//private static int[] _stats = new int[6];
+	private int[] _stats;
+	private int[] _mods;
 
 	void Awake () {
-		stats();
+		_stats = playerStats.getStats ();
+		_mods = playerStats.getMods ();
 	}
 
-	public static int[] getStats() {
+	public int[] getStats() {
 		return _stats;
 	}
 
-	public static void setStats(int index, int newVal) {
+	public int[] getMods() {
+		return _mods;
+	}
+
+	public void shuffle() {
+		playerStats.shuffle ();
+	}
+
+	public void setStats(int index, int newVal) {
 		_stats [index] = newVal;
-	}
-
-	public static void shuffle() {
-		stats ();
-	}
-
-	private static void stats() {
-		//Testing
-		//Debug.Log("Dice Working: " + tester ());
-
-		for (int i = 0; i < _stats.Length; i++) {
-			_stats [i] = Dice.removeMin(Dice.d6(4));
-			//Debug.Log (_stats [i]);
-		}
 	}
 
 	//Testing Purposes. Remove when done.

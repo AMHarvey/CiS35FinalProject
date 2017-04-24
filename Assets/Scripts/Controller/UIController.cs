@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour {
 	[SerializeField] private Text[] statDisplay;
+	[SerializeField] private Text[] modDisplay;
 	[SerializeField] StatUI statui;
+	[SerializeField] PlayerStats stats;
 
 	private bool isOpen = false;
 
@@ -30,14 +32,22 @@ public class UIController : MonoBehaviour {
 	}
 
 	public void Shuffle() {
-		PlayerStats.shuffle ();
+		stats.shuffle ();
 		displayStats ();
+		displayMods ();
 	}
 
 	public void displayStats() {
-		int[] stats = PlayerStats.getStats ();
-		for (int i = 0; i < statDisplay.Length; i++) {
-			statDisplay [i].text = stats[i].ToString ();
+		int[] statA = stats.getStats ();
+		for (int i = 0; i < 6; i++) {
+			statDisplay [i].text = statA [i].ToString ();
+		}
+	}
+
+	public void displayMods() {
+		int[] modA = stats.getMods ();
+		for (int i = 0; i < 6; i++) {
+			modDisplay [i].text = modA [i].ToString ();
 		}
 	}
 }
