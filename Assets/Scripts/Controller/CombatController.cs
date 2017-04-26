@@ -28,7 +28,8 @@ public class CombatController : MonoBehaviour {
 		if (Physics.Raycast (ray, out hit, 2.0f)) {
 			//Debug.DrawLine (attacker.transform.position, hit.point, Color.cyan, 60);
 			GameObject hitObject = hit.transform.gameObject;
-			EnemyActions target = hitObject.GetComponent<EnemyActions> (); //Make Die script to handle death for both characters?
+			//EnemyActions target = hitObject.GetComponent<EnemyActions> (); //Make Die script to handle death for both characters?
+			DeathController target = hitObject.GetComponent<DeathController> ();
 			if (target != null) {
 				target.reactToHit ();
 			}
@@ -39,7 +40,7 @@ public class CombatController : MonoBehaviour {
 		
 		int dice = Dice.d20 (1) [0]; //DEBUG ONLY, DELETE AFTER
 		Debug.Log (dice);//**
-		Debug.Log(stats.getAC());
+		Debug.Log(stats.getAC());//**
 
 		return dice > stats.getAC ();
 	}

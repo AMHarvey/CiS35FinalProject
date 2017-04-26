@@ -18,7 +18,7 @@ public class PlayerDetector : MonoBehaviour {
 			TurnController.startPlayerTurn ();
 			Debug.Log (TurnController.isPlayerTurn());
 			rotateTowards ();
-			//cController.attack (player);
+			cController.attack (player);
 		}
 	}
 

@@ -16,26 +16,28 @@ public class Movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		move ();
-		selectedRotate ();
+		//move ();
+		//selectedRotate ();
 	}
 		
-	private void move() {
+	public bool move() {
 		if (Input.GetMouseButtonDown(0)) {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
-				if(!hit.collider.gameObject.Equals(this.gameObject) && distanceFrom(hit) < 3.0f) { //Delete Collider
+				if(!hit.collider.gameObject.Equals(this.gameObject) && distanceFrom(hit) < 3.0f) { //Delete Collider, try tags
 					rotateTowards(hit);
 					_targetPos = hit.transform.position;
 					_targetPos.y = 1.1f;
 					transform.position = _targetPos;
+					return true;
 				}
 			}
 		}
+		return false;
 	}
 
-	private void selectedRotate() {
+	public void selectedRotate() {
 		if (Input.GetKeyDown("z")) {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
