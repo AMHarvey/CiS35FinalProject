@@ -15,11 +15,7 @@ public class Stats : MonoBehaviour {
 	void Awake () {
 		stats = new int[statSize];
 		mods = new int[statSize];
-		//assignStats ();
-		//addMods ();
-
-
-		//statTester ();
+		shuffle ();
 	}
 
 	public int[] getStats() {

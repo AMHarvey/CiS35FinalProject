@@ -15,10 +15,10 @@ public class PlayerDetector : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (!TurnController.isPlayerTurn()) {
-			TurnController.startPlayerTurn ();
-			Debug.Log (TurnController.isPlayerTurn());
-			rotateTowards ();
-			cController.attack (player);
+			//TurnController.startPlayerTurn ();
+			//Debug.Log (TurnController.isPlayerTurn());
+			//rotateTowards ();
+			//cController.attack (player);
 		}
 	}
 

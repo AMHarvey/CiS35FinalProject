@@ -20,6 +20,7 @@ public class DeathController : MonoBehaviour {
 
 	private IEnumerator Die() {
 		yield return new WaitForSeconds(1.5f);
+		Debug.Log ("WORKING " + this.gameObject.ToString());
 		Destroy (this.gameObject);
 	}
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CombatController : MonoBehaviour {
 
-	[SerializeField] EnemyStatistics stats;
+	[SerializeField] Stats stats;
 
 	// Use this for initialization
 	void Start () {
@@ -39,8 +39,8 @@ public class CombatController : MonoBehaviour {
 		int dice = Dice.d20 (1) [0]; //DEBUG ONLY, DELETE AFTER
 		//dice += stats.getMods()[1];
 		Debug.Log (dice);//**
-		Debug.Log(stats.getAC());//**
+		Debug.Log(stats.getArmorClass());//**
 
-		return dice > stats.getAC ();
+		return dice > stats.getArmorClass ();
 	}
 }

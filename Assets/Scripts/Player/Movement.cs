@@ -25,7 +25,8 @@ public class Movement : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
-				if(!hit.collider.gameObject.Equals(this.gameObject) && distanceFrom(hit) < 3.0f) { //Delete Collider, try tags
+				float temp = distanceFrom (hit);
+				if(!hit.collider.gameObject.Equals(this.gameObject) && temp < 3.0f && temp > 1.2f) { //Delete Collider, try tags
 					rotateTowards(hit);
 					_targetPos = hit.transform.position;
 					_targetPos.y = 1.1f;

@@ -6,7 +6,7 @@ public class UIController : MonoBehaviour {
 	[SerializeField] private Text[] statDisplay;
 	[SerializeField] private Text[] modDisplay;
 	[SerializeField] StatUI statui;
-	[SerializeField] PlayerStats stats;
+	[SerializeField] Stats stats;
 
 	private bool isOpen = false;
 
