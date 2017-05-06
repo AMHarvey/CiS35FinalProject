@@ -17,7 +17,7 @@ public class CombatController : MonoBehaviour {
 	}
 
 	public void attack(GameObject attacker) {
-		if (checkAttack () && TurnController.isPlayerTurn()) {
+		if (checkAttack () && TurnController.isPlayerTurn()) { //Make isAttackerTurn();
 			isEnemy (attacker);
 		} 
 	}
@@ -26,9 +26,7 @@ public class CombatController : MonoBehaviour {
 		Ray ray = new Ray (attacker.transform.position, attacker.transform.forward);
 		RaycastHit hit;
 		if (Physics.Raycast (ray, out hit, 2.0f)) {
-			//Debug.DrawLine (attacker.transform.position, hit.point, Color.cyan, 60);
 			GameObject hitObject = hit.transform.gameObject;
-			//EnemyActions target = hitObject.GetComponent<EnemyActions> (); //Make Die script to handle death for both characters?
 			DeathController target = hitObject.GetComponent<DeathController> ();
 			if (target != null) {
 				target.reactToHit ();
@@ -39,6 +37,7 @@ public class CombatController : MonoBehaviour {
 	private bool checkAttack() {
 		
 		int dice = Dice.d20 (1) [0]; //DEBUG ONLY, DELETE AFTER
+		//dice += stats.getMods()[1];
 		Debug.Log (dice);//**
 		Debug.Log(stats.getAC());//**
 

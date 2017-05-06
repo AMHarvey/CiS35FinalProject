@@ -30,6 +30,10 @@ public class Stats : MonoBehaviour {
 		return mods;
 	}
 
+	public int getArmorClass() {
+		return armorClass;
+	}
+
 	public void assignStats() {
 		for (int i = 0; i < 6; i++) {
 			stats [i] = Dice.removeMin(Dice.d6(4));
