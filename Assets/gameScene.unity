@@ -641,7 +641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1305628231}
-  cController: {fileID: 345033382}
+  actions: {fileID: 345033377}
 --- !u!114 &345033375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,6 +654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armorClass: 15
+  health: 6
 --- !u!114 &345033376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,11 +673,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 345033373}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68c087adefa0b8c4ea6375c1510cd098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cController: {fileID: 345033382}
+  enemyStats: {fileID: 345033375}
 --- !u!136 &345033380
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1682,7 +1685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73053d4e5d2d21246a4c04b4d4b6b9d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armorClass: 5
+  armorClass: 15
+  health: 5
 --- !u!4 &1305628234 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400038, guid: 541e0aca5301ac04f943ae6546e21b65, type: 3}

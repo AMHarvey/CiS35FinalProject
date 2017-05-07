@@ -18,9 +18,11 @@ public class CameraControls : MonoBehaviour {
 
 	// Update is called once per frame
 	void LateUpdate() {
-		_rotY -= Input.GetAxis ("Horizontal") * rotSpeed;
-		Quaternion rotation = Quaternion.Euler (0.0f, _rotY, 0.0f);
-		transform.position = target.position - (rotation * _offset);
-		transform.LookAt (target);
+		if (target != null) {
+			_rotY -= Input.GetAxis ("Horizontal") * rotSpeed;
+			Quaternion rotation = Quaternion.Euler (0.0f, _rotY, 0.0f);
+			transform.position = target.position - (rotation * _offset);
+			transform.LookAt (target);
+		}
 	}
 }

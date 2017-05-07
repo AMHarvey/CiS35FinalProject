@@ -18,7 +18,7 @@ public class TurnController : MonoBehaviour {
 	}
 
 	void Update() {
-		if (actionsTaken == actionsAllowed) {
+		if (actionsTaken >= actionsAllowed) {
 			if (isPlayerTurn ()) {
 				startEnemyTurn ();
 				resetTurn ();
@@ -43,9 +43,13 @@ public class TurnController : MonoBehaviour {
 		return playerTurn;
 	}
 
+	public static int getActions () {
+		return actionsTaken;
+	}
+
 	public static void takeAction() {
 		actionsTaken++;
-		Debug.Log (actionsTaken);
+		Debug.Log ("Action#: " + actionsTaken);
 	}
 
 	/*

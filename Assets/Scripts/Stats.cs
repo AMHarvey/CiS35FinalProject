@@ -11,11 +11,13 @@ public class Stats : MonoBehaviour {
 
 	public const int statSize = 6;
 	public int armorClass;
+	public int health;
 
 	void Awake () {
 		stats = new int[statSize];
 		mods = new int[statSize];
 		shuffle ();
+		Debug.Log (gameObject.ToString() + " Health: " + health);
 	}
 
 	public int[] getStats() {
@@ -28,6 +30,15 @@ public class Stats : MonoBehaviour {
 
 	public int getArmorClass() {
 		return armorClass;
+	}
+
+	public int getHealth () {
+		return health;
+	}
+
+	public void setHealth(int newHealth) {
+		health -= newHealth;
+		Debug.Log (gameObject.ToString() + " Health: " + health);
 	}
 
 	public void assignStats() {

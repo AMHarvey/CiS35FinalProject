@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerDetector : MonoBehaviour {
 	
 	[SerializeField] GameObject player;
-	[SerializeField] CombatController cController;
+	[SerializeField] EnemyActions actions;
 
 	// Use this for initialization
 	void Start () {
@@ -14,11 +14,11 @@ public class PlayerDetector : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!TurnController.isPlayerTurn()) {
+		if (!TurnController.isPlayerTurn() && player != null) {
 			//TurnController.startPlayerTurn ();
 			//Debug.Log (TurnController.isPlayerTurn());
-			//rotateTowards ();
-			//cController.attack (player);
+			rotateTowards ();
+			actions.attackTurn ();
 		}
 	}
 

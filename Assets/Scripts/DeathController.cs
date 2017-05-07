@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DeathController : MonoBehaviour {
+	
 
 	// Use this for initialization
 	void Start () {
