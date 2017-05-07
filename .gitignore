@@ -33,3 +33,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+Assets/Prototype Materials/
+Assets/Prototype Materials.meta
+Assets/TangyTextures Free Materials/
+Assets/TangyTextures Free Materials.meta

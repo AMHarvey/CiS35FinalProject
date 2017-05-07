@@ -13,9 +13,9 @@ public class HexGrid : MonoBehaviour {
 	Vector3 startPos;
 
 	void Awake() {
-		AddGap();
-		CalcStartPos();
-		CreateGrid();
+		//AddGap();
+		//CalcStartPos();
+		//CreateGrid();
 	}
 
 	void AddGap() {

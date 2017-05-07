@@ -17,7 +17,7 @@ public class Stats : MonoBehaviour {
 		stats = new int[statSize];
 		mods = new int[statSize];
 		shuffle ();
-		Debug.Log (gameObject.ToString() + " Health: " + health);
+		//Debug.Log (gameObject.ToString() + " Health: " + health);
 	}
 
 	public int[] getStats() {
