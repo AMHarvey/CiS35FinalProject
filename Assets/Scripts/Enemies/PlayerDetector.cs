@@ -14,10 +14,9 @@ public class PlayerDetector : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!TurnController.isPlayerTurn() && player != null) {
-			//TurnController.startPlayerTurn ();
-			//Debug.Log (TurnController.isPlayerTurn());
-			rotateTowards ();
+		if (!TurnController.isPlayerTurn() && player != null) { // Fix Rotation
+			if (distanceFrom(player) < 2.0f) 
+				rotateTowards ();
 			actions.attackTurn ();
 		}
 	}
@@ -27,5 +26,9 @@ public class PlayerDetector : MonoBehaviour {
 		Vector3 adjustedPos = new Vector3 (hitT.position.x, transform.position.y, hitT.position.z);
 		Quaternion targetRot = Quaternion.LookRotation (adjustedPos - transform.position);
 		transform.rotation = targetRot;
+	}
+
+	private float distanceFrom(GameObject player) {
+		return Vector3.Distance (gameObject.transform.position, player.transform.position);
 	}
 }

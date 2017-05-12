@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour {
 
-	public float rotSpeed = 15.0f;
+	[SerializeField] HexActions hexActions;
 
 	private Vector3 _targetPos;
 	private Vector3 _targetRot;
@@ -27,7 +27,7 @@ public class Movement : MonoBehaviour {
 			if (Physics.Raycast (ray, out hit)) {
 				float temp = distanceFrom (hit);
 				if(!hit.collider.gameObject.Equals(this.gameObject) && 
-					!HexActions.checkAbove(hit.transform.gameObject) &&
+					//!hexActions.checkAbove(hit.transform.gameObject) &&
 					temp < 3.0f && temp > 1.2f) { //Delete Collider, try tags
 					rotateTowards(hit);
 					_targetPos = hit.transform.position;

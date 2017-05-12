@@ -49,7 +49,7 @@ public class TurnController : MonoBehaviour {
 
 	public static void takeAction() {
 		actionsTaken++;
-		Debug.Log ("Action#: " + actionsTaken);
+		//Debug.Log ("Action#: " + actionsTaken);
 	}
 
 	/*
