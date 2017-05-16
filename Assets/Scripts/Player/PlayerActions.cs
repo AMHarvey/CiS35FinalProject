@@ -7,6 +7,8 @@ public class PlayerActions : MonoBehaviour {
 	[SerializeField] Movement move;
 	[SerializeField] CombatController cController;
 	[SerializeField] Stats playerStats;
+	[SerializeField] Stats enemyStats;
+	[SerializeField] GameObject prefab;
 
 	private bool hasAttacked;//Move to 
 	private bool hasMoved;// TurnController?
@@ -25,9 +27,12 @@ public class PlayerActions : MonoBehaviour {
 	}
 
 	private void moveTurn() {
-		if (TurnController.isPlayerTurn()) {
+		if (TurnController.isPlayerTurn ()) {
 			//if (move.move ()) hasMoved = true;
-			if (move.move ()) TurnController.takeAction();
+			if (move.move ())
+				TurnController.takeAction ();
+		} else {
+			hasAttacked = false;
 		}
 	}
 
@@ -46,12 +51,19 @@ public class PlayerActions : MonoBehaviour {
 		if (Physics.Raycast (ray, out hit, 2.0f)) {
 			hasAttacked = true;
 			TurnController.takeAction ();
+			GameObject t = Instantiate (prefab, hit.collider.gameObject.transform.position, hit.collider.gameObject.transform.rotation);
 			if (checkAttack (hit)) {
+				int damage = Dice.d8 (1)[0];
+				t.GetComponent<TextMesh> ().text = damage.ToString();
 				GameObject hitObject = hit.transform.gameObject;
 				DeathController target = hitObject.GetComponent<DeathController> ();
 				if (target != null) {
-					target.reactToHit ();
+					enemyStats.setHealth (damage);
+					if (enemyStats.getHealth() <= 0)
+						target.reactToHit ();
 				}
+			} else {
+				t.GetComponent<TextMesh> ().text = "MISS";
 			}
 		}
 	}
